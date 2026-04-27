@@ -7,6 +7,10 @@ VT_API_KEY = os.getenv("")
 WHOIS_API_KEY = os.getenv("")
 URLSCAN_API_KEY = os.getenv("")
 
+SUSPICIOUS_TLDS = []
+SUSPICIOUS_STRINGS = []
+CHAR_LEN_SUSPICIOUS = 14
+
 INPUT_FILE = "C:\Users\dovyd\OneDrive\Documents\Stalinis kompiuteris\Automation\EPERIMENTS\scam_site_detection\input\sample.txt"
-OUTPUT_FILDER = "C:\Users\dovyd\OneDrive\Documents\Stalinis kompiuteris\Automation\EPERIMENTS\scam_site_detection\output"
+OUTPUT_FOLDER = "C:\Users\dovyd\OneDrive\Documents\Stalinis kompiuteris\Automation\EPERIMENTS\scam_site_detection\output"
 
