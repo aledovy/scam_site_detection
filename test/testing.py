@@ -1,9 +1,5 @@
-unclean_domain = "google.com"
+unclean_domain = "goo222gle.com"
 
-domain = unclean_domain.split(".")[0]
-tld = unclean_domain.split(".")[-1]
+lennum = sum(1 for char in unclean_domain if char.isdigit())
 
-print(domain, tld)
-
-count_char = len(domain)
-print(count_char)
+print(lennum)

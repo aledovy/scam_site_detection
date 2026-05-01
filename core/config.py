@@ -7,7 +7,7 @@ VT_API_KEY = os.getenv("")
 WHOIS_API_KEY = os.getenv("")
 URLSCAN_API_KEY = os.getenv("")
 
-SUSPICIOUS_TLDS = []
+SUSPICIOUS_TLDS = ["xyz", "shop"]
 SUSPICIOUS_STRINGS = []
 CHAR_LEN_SUSPICIOUS = 14
 
