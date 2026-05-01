@@ -43,6 +43,11 @@ def check_number_digits(domain):
 def check_number_end():
     return
 
+def check_fchar():
+    return
+
+def check_lchar():
+    return 
 
 def check_number_start():
     return
