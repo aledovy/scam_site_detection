@@ -5,12 +5,12 @@ from core.config import SUSPICIOUS_STRINGS, SUSPICIOUS_TLDS, CHAR_LEN_SUSPICIOUS
 Lexical rules check against the domain to determine if its clean or scam
 '''
 
-def domain_cleanin(unclean_domain):
+def domain_cleanin(unclean_domain): #cleaning domain to get only domain name and top level domain for later processing
     domain = unclean_domain.split(".")[0]
     tld = unclean_domain.split(".")[-1]
     return domain, tld
 
-def len_count(domain):
+def len_count(domain): 
     count_char = len(domain)
     return count_char
 
