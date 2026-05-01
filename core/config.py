@@ -7,6 +7,9 @@ VT_API_KEY = os.getenv("")
 WHOIS_API_KEY = os.getenv("")
 URLSCAN_API_KEY = os.getenv("")
 
+VT_API_URL = "https://www.virustotal.com/api/v3/domains/"
+WHOIS_API_URL = ""
+
 SUSPICIOUS_TLDS = ["xyz", "shop"]
 SUSPICIOUS_STRINGS = []
 CHAR_LEN_SUSPICIOUS = 14
