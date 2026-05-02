@@ -1,3 +1,5 @@
-google.com
-facebook.com
-reddit.com
+https://google.com
+https://reddit.com
+https://15min.lt
+https://youtube.com
+https://sobotz.com
