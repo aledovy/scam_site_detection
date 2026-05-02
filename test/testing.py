@@ -1,48 +1,18 @@
 import requests
 import json
-import time
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
-target_domain = "google.com"
+domain = "google.com"
 
+VT_API_KEY = os.getenv("VT_API_KEY")
+VT_API_URL = os.getenv("VT_API_URL")
 
-payload = {
-  "url": target_domain,
-  "visibility": "public",
-  "country": "de",
-  "tags": [
-    "iloveurlscan",
-    "testing"
-  ]
-}
-
-headers = {
-  "Content-Type": "application/json",
-  "api-key": API_KEY
-}
-
-response = requests.post(url, json=payload, headers=headers)
-
+headers = {"accept": "application/json", "x-apikey": VT_API_KEY}
+response = requests.get(VT_API_URL + domain, headers=headers)
 data = response.json()
 
-uuid = data["uuid"]
-
-time.sleep(20)
-
-url = "https://urlscan.io/api/v1/result/" + uuid + "/"
-
-headers = {"api-key": API_KEY}
-
-response2 = requests.get(url, headers=headers)
-
-data2 = response2.json()
-
-#print(json.dumps(data2, indent=4))
-
-ip = data2["page"]["ip"]
-
-print(ip)
-
-
-with open("file.json", "w") as f:
-    f.write(json.dumps(data2, indent=4))
+with open("test.json", "w")as f:
+    f.write(json.dumps(data, indent=4))
