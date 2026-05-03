@@ -1,18 +1,30 @@
 import requests
 import json
-from dotenv import load_dotenv
-import os
+from core.config import VIEWDNS_API_KEY
 
-load_dotenv()
+HOST = "142.251.156.119"
+VIEWDNS_API_URL = "https://api.viewdns.info/reverseip/"
 
-domain = "google.com"
+def reverse_ip_lookup(host):
+    params = {
+        "host": host,
+        "apikey": VIEWDNS_API_KEY,
+        "output": "json"
+    }
+    response = requests.get(VIEWDNS_API_URL, params=params)
 
-VT_API_KEY = os.getenv("VT_API_KEY")
-VT_API_URL = os.getenv("VT_API_URL")
+    if response.status_code != 200:
+        raise RuntimeError(f"viewdns API failed ({response.status_code}): {response.text}")
 
-headers = {"accept": "application/json", "x-apikey": VT_API_KEY}
-response = requests.get(VT_API_URL + domain, headers=headers)
-data = response.json()
+    data = response.json()
+    domains = [d["name"] for d in data["response"]["domains"]]
+    return domains
 
-with open("test.json", "w")as f:
-    f.write(json.dumps(data, indent=4))
+if __name__ == "__main__":
+    domains = reverse_ip_lookup(HOST)
+    print(f"Found {len(domains)} domains:")
+    for domain in domains:
+        print(domain)
+
+    with open("test.json", "w") as f:
+        json.dump(domains, f, indent=4)
